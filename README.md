@@ -1,6 +1,6 @@
 # What's all this then, aye?
 
-Welcome to your handy development environment. This is where we'll be housing all of our resources (code, documents, notes, etc.) as we progress through our bootcamp.
+Welcome to your handy [development environment](https://github.com/ramiruhayel/development-environment). This is where we'll be housing all of our resources (code, documents, notes, etc.) as we progress through our bootcamp.
 
 ## Set up your `bootcamp-resources` repository
 
@@ -15,19 +15,20 @@ Welcome to your handy development environment. This is where we'll be housing al
     ***To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.***
 
 2. Open a new terminal
-3. Change into the `bootcamp-resources` directory
+3. Create a directory called `bootcamp-resources`
+4. Change into the `bootcamp-resources` directory
 
     ```shell
     cd bootcamp-resources
     ```
 
-4. Initialize the `bootcamp-resources` directory as a Git repository
+5. Initialize the `bootcamp-resources` directory as a Git repository
 
     ```shell
     git init -b main
     ```
 
-5. Add new content
+6. Add new content
 
    - For each new week, create a new sub-directory in `bootcamp-resources/`, for example:
 
@@ -53,14 +54,19 @@ Welcome to your handy development environment. This is where we'll be housing al
             └── .
     ```
 
-6. Add files in your local repository. This will stage them for the first commit
+7. Add files in your local repository. This will stage them for the first commit
 
     ```shell
     git add .
     # Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.
     ```
 
-7. Commit the files that you've staged in your local repository.
+8. Commit the files that you've staged in your local repository:
+
+    ```shell
+    git commit -m "First commit"
+    # Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
+    ```
 
 ## References
 
