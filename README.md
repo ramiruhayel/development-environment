@@ -1,20 +1,29 @@
 # Set up your development environment - aye
 
-Welcome to your handy [development environment](https://github.com/ramiruhayel/development-environment). This is where we'll be housing all of our resources (code, documents, notes, etc.) as we progress through our bootcamp.
+This project lets you use a Docker container as a full featured development environment. It allows you to open your day to day bootcamp repository inside a preconfigured container. If you'd like to know more about containers, check out this [link](https://www.docker.com/resources/what-container).
+
+![serious-business](./images/coding-is-serious-business.jpg)
 
 ## Prerequisites
 
 Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prework.readthedocs-hosted.com/en/latest/modules/chapter2/#module-2-install-your-tools) for the bootcamp.
 
+
 ### Windows
 
 1. Install [Git Bash](https://gitforwindows.org/)
+2. Install [Docker](https://docs.docker.com/get-docker/)
 
 ### Mac OS
 
 1. Set Bash as the default shell for the Terminal app
    - In the Terminal app on your Mac, choose Terminal > Preferences, then click General.
    - Under “Shells open with,” select “Command (complete path),” then enter `/bin/bash`
+2. Install [Docker](https://docs.docker.com/get-docker/)
+
+### Linux 
+
+1. Install [Docker](https://docs.docker.com/get-docker/)
 
 ## Clone this repo
 
@@ -103,18 +112,23 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
 
 1. Open a new terminal `` Ctrl + Shift + ` ``
 
-2. Press `Ctrl + V` to paste the commands we copied (in step 4 above) and press `Enter`
+2. Paste the commands we copied (in step 4 above) 
+   - Windows: `Ctrl + V` 
+   - Mac OS: `⌘  + V` 
+   - Linux: `Ctrl + Shift + V`
+
+3. Press `Enter`
 
 3. Unzip the first Activity for Week 1, Day 1 into the `bootcamp-resources` directory
 
    ```shell
-   unzip ../development-environment/01-HTML-Git-CSS.zip
+   unzip ../01-HTML-Git-CSS.zip
    ```
 
 5. List the contents of the `bootcamp-resources` directory
 
    ```shell
-   ls -aR
+   ls -R
    ```
 
    The output should be as follows:
@@ -158,7 +172,3 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
    # Pushes the changes in your local repository up to the remote repository you specified as the origin
 
    ```
-
-## References
-
-- Directory trees generated [tree.nathanfriend.io](https://tree.nathanfriend.io/)
