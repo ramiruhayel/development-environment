@@ -16,6 +16,8 @@
     "source=ABSOLUTE_PATH_TO_BOOTCAMP_RESOURCES_DIRECTORY,target=/workspaces/development-environment/bootcamp-resources,type=bind,consistency=cached"
   ],
 
+  "workspaceFolder": "/workspaces/development-environment/bootcamp-resources",
+
   "extensions": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
