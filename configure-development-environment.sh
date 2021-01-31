@@ -34,6 +34,8 @@ cat ./.devcontainer/devcontainer.json
 echo 
 echo "#####################################"
 
+# Todo: Update the location of bash.exe in settings.json
+
 # Create a bootcamp-resources repository (if it doesn't exist)
 curl \
   -u "$GITHUB_PERSONAL_ACCESS_TOKEN:x-oauth-basic" \

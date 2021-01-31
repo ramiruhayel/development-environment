@@ -12,6 +12,18 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
 
 1. Install [Git Bash](https://gitforwindows.org/)
 2. Install [Docker](https://docs.docker.com/get-docker/)
+3. Open a new PowerShell window as an Administrator. 
+4. To set up your SSH agent run the following:
+   ```powershell
+   Set-Service ssh-agent -StartupType Automatic # ↵ Enter
+   Start-Service ssh-agent # ↵ Enter
+   Get-Service ssh-agent # ↵ Enter
+   ```
+
+5. Add your existing GitHub SSH key to the agent:
+   ```powershell
+   ssh-add $HOME\.ssh\id_rsa # ↵ Enter
+   ```
 
 ### Mac OS
 
@@ -63,7 +75,12 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    GITHUB_ACCOUNT_NAME=john_doe_github_account
    GITHUB_PERSONAL_ACCESS_TOKEN=123456789 # <--- Use the `bootcamp-personal-access-token` you created earlier
 
-   # Path to 'code' directory
+   # Path to 'code' directory. 
+   # The path will look different depending on your OS:
+   # Windows: /c/Users/johndoe/code
+   # MacOS: /home/johndoe/code
+   # Linux: /home/johndoe/code
+   #
    CODE_PATH=/home/johndoe/code # <--- Make sure there is no trailing / e.g. ../code NOT ../code/ 
 
    # DO NOT CHANGE THIS VALUE!!
@@ -101,7 +118,7 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
 
 2. Type `Remote-Containers: Reopen In Container` and press enter.
 
-3. Your VS Code session will restart, and reopen in the development container.
+3. Your VS Code session will restart, and reopen in the development container (be patient - this may take a little while).
 
 ## Add your first activity to your `bootcamp-resources` repoisitory
 
@@ -153,10 +170,19 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    # To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
    ```
 
-6. Push the changes in your local repository to GitHub
+6. Configure your local repository:
 
    ```shell
-   git push # ↵ Enter
+   git branch -M main # ↵ Enter
+   git remote add origin git@github.com:robynheslop/bootcamp-resources.git # ↵ Enter
+   # Set the default branch to main
+   # Set the upstream to your bootcamp-resources repository
+   ```
+
+7. Push the changes in your local repository to GitHub
+
+   ```shell
+   git push -u origin main # ↵ Enter
    # Pushes the changes in your local repository up to the remote repository you specified as the origin
 
    ```
