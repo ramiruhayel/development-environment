@@ -2,12 +2,11 @@
 
 This project lets you use a Docker container as a full featured development environment. It allows you to open your day to day bootcamp repository inside a preconfigured container. If you'd like to know more about containers, check out this [link](https://www.docker.com/resources/what-container).
 
-![serious-business](./images/coding-is-serious-business.jpg)
+![learn-code](./images/learn-code.png)
 
-## Prerequisites
+## Before you begin
 
 Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prework.readthedocs-hosted.com/en/latest/modules/chapter2/#module-2-install-your-tools) for the bootcamp.
-
 
 ### Windows
 
@@ -21,34 +20,64 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
    - Under “Shells open with,” select “Command (complete path),” then enter `/bin/bash`
 2. Install [Docker](https://docs.docker.com/get-docker/)
 
-### Linux 
+### Linux
 
 1. Install [Docker](https://docs.docker.com/get-docker/)
 
-## Clone this repo
+## GitHub Personal Access Token
+
+Follow the instructions [here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to create a personal access token, paying atttention the following steps:
+
+- On Step 6, enter 'bootcamp-personal-access-token' for the token name
+- On Step 7, select ☑ repo
+
+![Creating a Personal Access Token](./images/personal-access-token.png)
+
+## Development Environment
 
 1. Open a new Git Bash shell (Windows) / Terminal (Mac OS,Linux)
 
-1. Create directory called `code` in your home directory and change into it
+2. Create directory called `code` in your home directory and change into it
 
    ```shell
-   mkdir ~/code
-   cd ~/code
+   mkdir ~/code # ↵ Enter
+   cd ~/code # ↵ Enter
    ```
 
-1. Clone the [development environment](https://github.com/ramiruhayel/development-environment) repository
+3. Clone the [development environment](https://github.com/ramiruhayel/development-environment) repository
 
    ```shell
-   git clone git@github.com:ramiruhayel/development-environment.git
+   git clone git@github.com:ramiruhayel/development-environment.git # ↵ Enter
    ```
 
-1. Run the following command to open the `~/code/development-environment` folder in VS Code
+4. Open the `development-environment/.user.env` file in your favourite text editor
+
+5. Update the values in `development-environment/.user.env` with your details. *Be sure not to leave _any white space_ before or after the = signs.*
+
+   ```dotenv
+   # User's Email & Name
+   USER_NAME=John Doe
+   USER_EMAIL=john.doe@youremailprovider.com
+
+   # GIT Account Name
+   GITHUB_ACCOUNT_NAME=john_doe_github_account
+   GITHUB_PERSONAL_ACCESS_TOKEN=123456789 # <--- Use the `bootcamp-personal-access-token` you created earlier
+
+   # Path to 'code' directory
+   CODE_PATH=/home/johndoe/code # <--- Make sure there is no trailing / e.g. ../code NOT ../code/ 
+
+   # DO NOT CHANGE THIS VALUE!!
+   STUDENT_REPO_NAME=bootcamp-resources
+   ```
+
+6. Run the following command to open the `~/code/development-environment` folder in VS Code
 
    ```shell
-   code ~/code/development-environment
+   code ~/code/development-environment # ↵ Enter
    ```
 
-1. Inspect `.vscode/settings.json` and make sure that the path to your bash executable is correct
+7. Inspect `.vscode/settings.json` and make sure that the path to your bash executable is correct
+
    ```json
    {
      "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\git-bash.exe",
@@ -56,49 +85,15 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
      "terminal.integrated.shell.linux": "/bin/bash"
    }
    ```
-1. Update the values of `GIT_USER_NAME` and `GIT_USER_EMAIL` in the `.devcontainer/devcontainer.env`
 
-   ```env
-   GIT_USER_NAME=Bootcamp-Student
-   GIT_USER_EMAIL=student@bootcamp.com #Make sure it's the same email address you used to create your GitHub account
-   ```
+8. Open a new terminal `` Ctrl + Shift + ` ``
 
-1. Open `.devcontainer/devcontainer.json`
-1. Replace `ABSOLUTE_PATH_TO_BOOTCAMP_RESOURCES_DIRECTORY` with the absolute path to your bootcamp resources directory e.g. `/home/your-user-name/code/bootcamp-resources`
-
-   ```json
-   "mounts": [
-    "source=ABSOLUTE_PATH_TO_BOOTCAMP_RESOURCES_DIRECTORY,target=/workspaces/development-environment/bootcamp-resources,type=bind,consistency=cached"],
-   ```
-
-1. Change into the `~/code` directory
+9. In the terminal, run the following commands. When prompted, enter your GitHub account password and hit ↵ Enter.
 
    ```shell
-   cd ~/code
+   chmod u+x ./configure-development-environment.sh # ↵ Enter
+   ./configure-development-environment.sh # ↵ Enter
    ```
-
-## Set up your `bootcamp-resources` repository
-
-1. [Create a new repository](https://docs.github.com/en/articles/creating-a-new-repository) on GitHub.
-
-   - When asked to `Choose a template` select `No Template`.
-
-   - Name your repository `bootcamp-resources`.
-
-   - Set the repository visibility to `Public`.
-
-     **_To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub._**
-
-2. At the top of your GitHub repository's Quick Setup page, select SSH and click the clipboard to copy the remote repository URL.
-3. In the same terminal, clone the repository using the following command
-
-   ```shell
-   git clone # Paste the repostiroy URL that you copied in step 2
-   ```
-
-4. Click the clipboard next to `... or create a new repository on the command line`
-
-   ![bootcamp resources](./images/bootcamp-resources.png)
 
 ## Open your workspace in the development container
 
@@ -112,23 +107,16 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
 
 1. Open a new terminal `` Ctrl + Shift + ` ``
 
-2. Paste the commands we copied (in step 4 above) 
-   - Windows: `Ctrl + V` 
-   - Mac OS: `⌘  + V` 
-   - Linux: `Ctrl + Shift + V`
-
-3. Press `Enter`
-
-3. Unzip the first Activity for Week 1, Day 1 into the `bootcamp-resources` directory
+2. Unzip the first Activity for Week 1, Day 1 into the `bootcamp-resources` directory
 
    ```shell
-   unzip ../01-HTML-Git-CSS.zip
+   unzip ../01-HTML-Git-CSS.zip # ↵ Enter
    ```
 
-5. List the contents of the `bootcamp-resources` directory
+3. List the contents of the `bootcamp-resources` directory
 
    ```shell
-   ls -R
+   ls -R # ↵ Enter
    ```
 
    The output should be as follows:
@@ -149,26 +137,28 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
 
    **_Your TA will send out each week's activities as you progress through the bootcamp._**
 
-6. Add the new files to your local repository. This will stage them for the first commit
+4. Add the new files to your local repository. This will stage them for the first commit
 
    ```shell
-   git add .
+   git add . # ↵ Enter
    # Adds the files in the local repository and stages them for commit.
    # To unstage a file, use 'git reset HEAD YOUR-FILE'.
    ```
 
-7. Commit the files that you've staged in your local repository:
+5. Commit the files that you've staged in your local repository:
 
    ```shell
-   git commit -m "Added first Activity for Week 1"
+   git commit -m "Added first Activity for Week 1" # ↵ Enter
    # Commits the tracked changes and prepares them to be pushed to a remote repository.
    # To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
    ```
 
-8. Push the changes in your local repository to GitHub
+6. Push the changes in your local repository to GitHub
 
    ```shell
-   git push
+   git push # ↵ Enter
    # Pushes the changes in your local repository up to the remote repository you specified as the origin
 
    ```
+
+   ![coding-magic](./images/coding-magic.jpeg)
