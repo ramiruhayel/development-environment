@@ -12,8 +12,17 @@ echo "GitHub Personal Access Token: $GITHUB_PERSONAL_ACCESS_TOKEN"
 echo "GitHub Account Name: $GITHUB_ACCOUNT_NAME"
 echo "Code Path: $CODE_PATH"
 
+echo "Windows Bash Path: $WIN_BASH_PATH"
+echo "OSX Bash Path: $OSX_BASH_PATH"
+echo "Linux Bash Path: $LINUX_BASH_PATH"
+
 BOOTCAMP_RESOURCES_PATH="$CODE_PATH/$STUDENT_REPO_NAME"
 echo "Bootcamp Resources Path: $BOOTCAMP_RESOURCES_PATH"
+
+# Update path to bash executable in settings.json
+sed -i "s~\(\"terminal.integrated.shell.windows\":\).*,~\1 \"$(echo $WIN_BASH_PATH | sed -e 's|\\|\\\\|g')\",~" ./.vscode/settings.json
+sed -i "s~\(\"terminal.integrated.shell.osx\":\).*,~\1 \"$OSX_BASH_PATH\",~" ./.vscode/settings.json
+sed -i "s~\(\"terminal.integrated.shell.linux\":\).*,~\1 \"$LINUX_BASH_PATH\",~" ./.vscode/settings.json
 
 # Update devcontainer.env
 sed -i "s/GIT_USER_EMAIL=.*/GIT_USER_EMAIL=$USER_EMAIL/" ./.devcontainer/devcontainer.env 
@@ -33,8 +42,6 @@ echo "#####################################"
 cat ./.devcontainer/devcontainer.json
 echo 
 echo "#####################################"
-
-# Todo: Update the location of bash.exe in settings.json
 
 # Create a bootcamp-resources repository (if it doesn't exist)
 curl \

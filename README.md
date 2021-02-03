@@ -62,9 +62,13 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    git clone git@github.com:ramiruhayel/development-environment.git # ↵ Enter
    ```
 
-4. Open the `development-environment/.user.env` file in your favourite text editor
+4. Run the following command to open the `~/code/development-environment` folder in VS Code
 
-5. Update the values in `development-environment/.user.env` with your details. *Be sure not to leave _any white space_ before or after the = signs.*
+   ```shell
+   code ~/code/development-environment # ↵ Enter
+   ```
+
+5. Update the values in `.user.env` with your details. *Be sure not to leave _any white space_ before or after the = signs.*
 
    ```dotenv
    # User's Email & Name
@@ -83,29 +87,38 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    #
    CODE_PATH=/home/johndoe/code # <--- Make sure there is no trailing / e.g. ../code NOT ../code/ 
 
+   # Path to your bash executable - you only need to set the one for your operating system
+   # 
+   # On Windows:
+   # ----------- 
+   # Be sure to escape the '\' characters in the  path.
+   # You do this by adding a second \ in front of the \ characters
+   # For example: 
+   #    'C:\Users\John Doe\AppData\Local\Programs\Git\bin\bash.exe'
+   # becomes
+   #    'C:\\Users\\John Doe\\AppData\\Local\\Programs\\Git\\bin\\bash.exe'
+   #
+   WIN_BASH_PATH='C:\\Users\\John Doe\\AppData\\Local\\Programs\\Git\bin\\bash.exe'
+   #
+   # On OSX: 
+   # ----------
+   # Default location: '/usr/local/bin/bash'
+   #
+   OSX_BASH_PATH='/usr/local/bin/bash'
+   #
+   # On Linux: 
+   # ----------
+   # Default location: '/bin/bash'
+   #
+   LINUX_BASH_PATH='/bin/bash'
+   
    # DO NOT CHANGE THIS VALUE!!
    STUDENT_REPO_NAME=bootcamp-resources
    ```
 
-6. Run the following command to open the `~/code/development-environment` folder in VS Code
+7. Open a new terminal `` Ctrl + Shift + ` ``
 
-   ```shell
-   code ~/code/development-environment # ↵ Enter
-   ```
-
-7. Inspect `.vscode/settings.json` and make sure that the path to your bash executable is correct
-
-   ```json
-   {
-     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\git-bash.exe",
-     "terminal.integrated.shell.osx": "/usr/local/bin/bash",
-     "terminal.integrated.shell.linux": "/bin/bash"
-   }
-   ```
-
-8. Open a new terminal `` Ctrl + Shift + ` ``
-
-9. In the terminal, run the following commands. When prompted, enter your GitHub account password and hit ↵ Enter.
+8. In the terminal, run the following commands. When prompted, enter your GitHub account password and hit ↵ Enter.
 
    ```shell
    chmod u+x ./configure-development-environment.sh # ↵ Enter
