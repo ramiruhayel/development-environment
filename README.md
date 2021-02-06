@@ -61,7 +61,25 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    ```shell
    git clone git@github.com:ramiruhayel/development-environment.git # ↵ Enter
    ```
+   *Some Mac OSX users may get the following error:*
 
+   ```shell
+   xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun. 
+   ```
+
+   To resolve it, go back to your terminal and run the folowing command:
+
+   ```console
+   $ xcode-select --install # ↵ Enter - You should then see the following output
+   xcode-select: note: install requested for command line developer tools
+   ```
+   A window will open and you will be prompted to update Xcode Command Line tools. This step may take a while.
+
+   Once the installation of the XCode Command Line tools is completed, open a new terminal window and re-run:
+   
+   ```shell
+   git clone git@github.com:ramiruhayel/development-environment.git # ↵ Enter
+   ```
 4. Run the following command to open the `~/code/development-environment` folder in VS Code
 
    ```shell
