@@ -95,7 +95,23 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    xcode-select: note: install requested for command line developer tools
    ```
 
-   A window will open and you will be prompted to update Xcode Command Line tools. This step may take a while.
+   A window will open and you will be prompted to update Xcode Command Line tools. This step may take a while. When it completes,
+
+   When the Xcode Command Line tools have finished installing, go back to your terminal and run:
+
+   ```sh
+   $ xcodebuild -license # ↵ Enter -- The below message will appear:
+   You have not agreed to the Xcode license agreements. You must agree to both license agreements below in order to use Xcode.
+   Hit the Enter key to view the license agreements at '/Applications/Xcode.app/Contents/Resources/English.lproj/License.rtf'
+   ```
+
+   Press `↵ Enter` to open the license agreement and hit the `Space` key until the below message appears:
+
+   ```sh
+   By typing 'agree' you are agreeing to the terms of the software license agreements. Type 'print' to print them or anything else to cancel, [agree, print, cancel]
+   ```
+
+   Type `agree` and hit `↵ Enter` to accept the license agreement.
 
    Once the installation of the XCode Command Line tools is completed, open a new terminal window and re-run:
 
