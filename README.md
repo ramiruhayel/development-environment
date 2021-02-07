@@ -128,7 +128,6 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    Once VS code opens, a notification will appear in the bottom right hand corner about recommended extensions. Click 'Install All'.
 
    ![Installing Extensions](./images/extension-notification.png)
-   
 
 5. Update the values in `.user.env` with your details. *Be sure not to leave _any white space_ before or after the = signs.*
 
@@ -149,12 +148,12 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
 
    ```dotenv
    # User's Email & Name
-   USER_NAME=John Doe
-   USER_EMAIL=john.doe@youremailprovider.com
+   USER_NAME='John Doe'
+   USER_EMAIL='john.doe@youremailprovider.com'
 
    # GIT Account Name
-   GITHUB_ACCOUNT_NAME=john_doe_github_account
-   GITHUB_PERSONAL_ACCESS_TOKEN=123456789 # <--- Use the `bootcamp-personal-access-token` you created earlier
+   GITHUB_ACCOUNT_NAME='john_doe_github_account'
+   GITHUB_PERSONAL_ACCESS_TOKEN='123456789' # <--- Use the `bootcamp-personal-access-token` you created earlier
 
    # Path to 'code' directory. 
    # The path will look different depending on your OS:
