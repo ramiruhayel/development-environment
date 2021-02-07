@@ -20,16 +20,16 @@ BOOTCAMP_RESOURCES_PATH="$CODE_PATH/$STUDENT_REPO_NAME"
 echo "Bootcamp Resources Path: $BOOTCAMP_RESOURCES_PATH"
 
 # Update path to bash executable in settings.json
-sed -i -e "s~\(\"terminal.integrated.shell.windows\":\).*,~\1 \"$(echo $WIN_BASH_PATH | sed -e 's|\\|\\\\|g')\",~" ./.vscode/settings.json
-sed -i -e "s~\(\"terminal.integrated.shell.osx\":\).*,~\1 \"$OSX_BASH_PATH\",~" ./.vscode/settings.json
-sed -i -e "s~\(\"terminal.integrated.shell.linux\":\).*,~\1 \"$LINUX_BASH_PATH\",~" ./.vscode/settings.json
-rm -f ./.vscode/settings.json-e
-
+sed -i -E "s~\(\"terminal.integrated.shell.windows\":\).*,~\1 \"$(echo $WIN_BASH_PATH | sed -E 's|\\|\\\\|g')\",~" ./.vscode/settings.json
+sed -i -E "s~\(\"terminal.integrated.shell.osx\":\).*,~\1 \"$OSX_BASH_PATH\",~" ./.vscode/settings.json
+sed -i -E "s~\(\"terminal.integrated.shell.linux\":\).*,~\1 \"$LINUX_BASH_PATH\",~" ./.vscode/settings.json
+rm -f ./.vscode/settings.json-E
+     
 # Update devcontainer.env
-sed -i -e "s/GIT_USER_EMAIL=.*/GIT_USER_EMAIL=$USER_EMAIL/" ./.devcontainer/devcontainer.env 
-sed -i -e "s/GIT_USER_NAME=.*/GIT_USER_NAME=$USER_NAME/" ./.devcontainer/devcontainer.env
-rm -f ./.devcontainer/devcontainer.env-e
-
+sed -i -E "s/GIT_USER_EMAIL=.*/GIT_USER_EMAIL=$USER_EMAIL/" ./.devcontainer/devcontainer.env 
+sed -i -E "s/GIT_USER_NAME=.*/GIT_USER_NAME=$USER_NAME/" ./.devcontainer/devcontainer.env
+rm -f ./.devcontainer/devcontainer.env-E
+     
 echo "#####################################"
 echo "### devcontainer/devcontainer.env ###"
 echo "#####################################"
@@ -38,8 +38,8 @@ echo
 echo "#####################################"
 
 # Update devcontainer.json
-sed -i -e "s|source=.*,target|source=$BOOTCAMP_RESOURCES_PATH,target|" ./.devcontainer/devcontainer.json
-rm -f ./.devcontainer/devcontainer.json-e
+sed -i -E "s|source=.*,target|source=$BOOTCAMP_RESOURCES_PATH,target|" ./.devcontainer/devcontainer.json
+rm -f ./.devcontainer/devcontainer.json-E
 echo "#####################################"
 echo "### devcontainer/devcontainer.json ##"
 echo "#####################################"
@@ -55,7 +55,7 @@ curl \
   -d "{\"name\":\"$STUDENT_REPO_NAME\"}" \
   -o .create-repo-response.tmp
 
-BOOTCAMP_REPO_SSH_URL=$(sed -n 's~"ssh_url": "\(.*\)",~\1~p' .create-repo-response.tmp | sed 's/\s//g')
+BOOTCAMP_REPO_SSH_URL=$(sed -n 's~"ssh_url": "\(.*\)",~\1~p' .create-repo-response.tmp | sed -E 's/\\s//g')
 echo "Bootcamp Repo SSH URL: $BOOTCAMP_REPO_SSH_URL"
 
 if [ -z "$BOOTCAMP_REPO_SSH_URL" ]
