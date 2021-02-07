@@ -125,7 +125,27 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    code ~/code/development-environment # ↵ Enter
    ```
 
+   Once VS code opens, a notification will appear in the bottom right hand corner about recommended extensions. Click 'Install All'.
+
+   ![Installing Extensions](./images/extension-notification.png)
+   
+
 5. Update the values in `.user.env` with your details. *Be sure not to leave _any white space_ before or after the = signs.*
+
+   To get the path to your **code directory**, return to the Git Bash/Terminal shell you have open and run the following command to print the path:
+
+   ```shell
+   pwd # ↵ Enter
+   ```
+
+   To get the path to your **bash executable**, in your Git Bash/Terminal shell run the following:
+
+   ```shell
+   # OSX and Linux users: 
+   whereis bash  # ↵ Enter
+   # Windows users: 
+   where bash # ↵ Enter
+   ```
 
    ```dotenv
    # User's Email & Name
@@ -190,7 +210,7 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
 
 3. Your VS Code session will restart, and reopen in the development container (be patient - this may take a little while).
 
-## Add your first activity to your `bootcamp-resources` repoisitory
+## Add your first activity to your `bootcamp-resources` repository
 
 1. Open a new terminal `` Ctrl + Shift + ` ``
 
