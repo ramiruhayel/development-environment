@@ -19,15 +19,16 @@
   "workspaceFolder": "/workspaces/development-environment/bootcamp-resources",
 
   "extensions": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "bierner.markdown-preview-github-styles",
-    "ms-vsliveshare.vsliveshare",
-    "ms-vsliveshare.vsliveshare-pack",
-    "ms-azuretools.vscode-docker",
-    "peakchen90.open-html-in-browser",
-    "coenraads.bracket-pair-colorizer-2"
-  ],
+	"dbaeumer.vscode-eslint",
+	"esbenp.prettier-vscode",
+	"bierner.markdown-preview-github-styles",
+	"ms-vsliveshare.vsliveshare",
+	"ms-vsliveshare.vsliveshare-pack",
+	"ms-azuretools.vscode-docker",
+	"peakchen90.open-html-in-browser",
+	"coenraads.bracket-pair-colorizer-2",
+	"mikestead.dotenv"
+],
 
   "forwardPorts": [3000, 8000],
 

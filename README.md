@@ -159,9 +159,9 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    #
    # On OSX: 
    # ----------
-   # Default location: '/usr/local/bin/bash'
+   # Default location: '/bin/bash'
    #
-   OSX_BASH_PATH='/usr/local/bin/bash'
+   OSX_BASH_PATH='/bin/bash'
    #
    # On Linux: 
    # ----------
