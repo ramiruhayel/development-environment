@@ -20,13 +20,16 @@ BOOTCAMP_RESOURCES_PATH="$CODE_PATH/$STUDENT_REPO_NAME"
 echo "Bootcamp Resources Path: $BOOTCAMP_RESOURCES_PATH"
 
 # Update path to bash executable in settings.json
-sed -i "s~\(\"terminal.integrated.shell.windows\":\).*,~\1 \"$(echo $WIN_BASH_PATH | sed -e 's|\\|\\\\|g')\",~" ./.vscode/settings.json
-sed -i "s~\(\"terminal.integrated.shell.osx\":\).*,~\1 \"$OSX_BASH_PATH\",~" ./.vscode/settings.json
-sed -i "s~\(\"terminal.integrated.shell.linux\":\).*,~\1 \"$LINUX_BASH_PATH\",~" ./.vscode/settings.json
+sed -i -e "s~\(\"terminal.integrated.shell.windows\":\).*,~\1 \"$(echo $WIN_BASH_PATH | sed -e 's|\\|\\\\|g')\",~" ./.vscode/settings.json
+sed -i -e "s~\(\"terminal.integrated.shell.osx\":\).*,~\1 \"$OSX_BASH_PATH\",~" ./.vscode/settings.json
+sed -i -e "s~\(\"terminal.integrated.shell.linux\":\).*,~\1 \"$LINUX_BASH_PATH\",~" ./.vscode/settings.json
+rm -f ./.vscode/settings.json-e
 
 # Update devcontainer.env
-sed -i "s/GIT_USER_EMAIL=.*/GIT_USER_EMAIL=$USER_EMAIL/" ./.devcontainer/devcontainer.env 
-sed -i "s/GIT_USER_NAME=.*/GIT_USER_NAME=$USER_NAME/" ./.devcontainer/devcontainer.env
+sed -i -e "s/GIT_USER_EMAIL=.*/GIT_USER_EMAIL=$USER_EMAIL/" ./.devcontainer/devcontainer.env 
+sed -i -e "s/GIT_USER_NAME=.*/GIT_USER_NAME=$USER_NAME/" ./.devcontainer/devcontainer.env
+rm -f ./.devcontainer/devcontainer.env-e
+
 echo "#####################################"
 echo "### devcontainer/devcontainer.env ###"
 echo "#####################################"
@@ -35,7 +38,8 @@ echo
 echo "#####################################"
 
 # Update devcontainer.json
-sed -i "s|source=.*,target|source=$BOOTCAMP_RESOURCES_PATH,target|" ./.devcontainer/devcontainer.json
+sed -i -e "s|source=.*,target|source=$BOOTCAMP_RESOURCES_PATH,target|" ./.devcontainer/devcontainer.json
+rm -f ./.devcontainer/devcontainer.json-e
 echo "#####################################"
 echo "### devcontainer/devcontainer.json ##"
 echo "#####################################"
