@@ -1,6 +1,5 @@
 {
-    // Git Bash
-    "terminal.integrated.shell.windows": "C:\\Users\\John Doe\\AppData\\Local\\Programs\\Git\bin\\bash.exe",
+    "terminal.integrated.shell.windows": "",
     "terminal.integrated.shell.osx": "/bin/bash",
-    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.shell.linux": "/bin/bash"
 }
