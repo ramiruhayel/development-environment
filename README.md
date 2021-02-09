@@ -11,6 +11,15 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
 ### Windows
 
 1. Install [Git Bash](https://gitforwindows.org/)
+   
+   1. When you reach the `Select Destination Location` step during installation, verify that the location is set to  `C:\Program Files\Git`
+
+      ![git-installation](./images/bash-installation.png)
+
+   2. After the Git Bash installation is complete, open the `C:\Program Files\Git\bin` folder and verify that it contains a `bash.exe` file
+
+      ![explorer-bash](./images/explorer-bash.png)
+
 2. Install [Docker](https://docs.docker.com/get-docker/)
 3. Open a new PowerShell window as an Administrator.
 4. To set up your SSH agent run the following:
@@ -52,29 +61,6 @@ Ensure you have worked through the [pre-work](https://coding-bootcamp-fsf-prewor
 
 3. Install [Docker](https://docs.docker.com/get-docker/)
 
-4. Open the `devcontainer/devcontainer.json` and make the following changes:
-
-   Replace the `mounts` entry with the following:
-
-   ```json
-   "mounts": [
-      "source=ABSOLUTE_PATH_TO_BOOTCAMP_RESOURCES_DIRECTORY,target=/workspaces/development-environment/bootcamp-resources,type=bind,consistency=cached",
-      "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind,consistency=cached"
-   ],
-   ```
-
-   Add the following `containerEnv` property below `mounts`:
-
-   ```json
-   "containerEnv": {
-      "SSH_AUTH_SOCK": "/ssh-agent",
-   },
-   ```
-
-   Your file should now look like this:
-
-   ![macos-updated-devcontainer-json](./images/macos-updated-devcontainer-json.png)
-
 ### Linux
 
 1. Install [Docker](https://docs.docker.com/get-docker/)
@@ -105,42 +91,42 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    git clone git@github.com:ramiruhayel/development-environment.git # ↵ Enter
    ```
 
-   _Some Mac OSX users may get the following error:_
+   - _Some Mac OSX users may get the following error:_
 
-   ```shell
-   xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun.
-   ```
+      ```shell
+      xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun.
+      ```
 
-   To resolve it, go back to your terminal and run the folowing command:
+      To resolve it, go back to your terminal and run the folowing command:
 
-   ```console
-   $ xcode-select --install # ↵ Enter - You should then see the following output
-   xcode-select: note: install requested for command line developer tools
-   ```
+      ```console
+      $ xcode-select --install # ↵ Enter - You should then see the following output
+      xcode-select: note: install requested for command line developer tools
+      ```
 
-   A window will open and you will be prompted to update Xcode Command Line tools. This step may take a while. When it completes,
+      A window will open and you will be prompted to update Xcode Command Line tools. This step may take a while. When it completes,
 
-   When the Xcode Command Line tools have finished installing, go back to your terminal and run:
+      When the Xcode Command Line tools have finished installing, go back to your terminal and run:
 
-   ```sh
-   $ xcodebuild -license # ↵ Enter -- The below message will appear:
-   You have not agreed to the Xcode license agreements. You must agree to both license agreements below in order to use Xcode.
-   Hit the Enter key to view the license agreements at '/Applications/Xcode.app/Contents/Resources/English.lproj/License.rtf'
-   ```
+      ```sh
+      $ xcodebuild -license # ↵ Enter -- The below message will appear:
+      You have not agreed to the Xcode license agreements. You must agree to both license agreements below in order to use Xcode.
+      Hit the Enter key to view the license agreements at '/Applications/Xcode.app/Contents/Resources/English.lproj/License.rtf'
+      ```
 
-   Press `↵ Enter` to open the license agreement and hit the `Space` key until the below message appears:
+      Press `↵ Enter` to open the license agreement and hit the `Space` key until the below message appears:
 
-   ```sh
-   By typing 'agree' you are agreeing to the terms of the software license agreements. Type 'print' to print them or anything else to cancel, [agree, print, cancel]
-   ```
+      ```sh
+      By typing 'agree' you are agreeing to the terms of the software license agreements. Type 'print' to print them or anything else to cancel, [agree, print, cancel]
+      ```
 
-   Type `agree` and hit `↵ Enter` to accept the license agreement.
+      Type `agree` and hit `↵ Enter` to accept the license agreement.
 
-   Once the installation of the XCode Command Line tools is completed, open a new terminal window and re-run:
+      Once the installation of the XCode Command Line tools is completed, open a new terminal window and re-run:
 
-   ```shell
-   git clone git@github.com:ramiruhayel/development-environment.git # ↵ Enter
-   ```
+      ```shell
+      git clone git@github.com:ramiruhayel/development-environment.git # ↵ Enter
+      ```
 
 4. Run the following command to open the `~/code/development-environment` folder in VS Code
 
@@ -152,21 +138,37 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
 
    ![Installing Extensions](./images/extension-notification.png)
 
-5. Update the values in `.user.env` with your details. *Be sure not to leave _any white space_ before or after the = signs.*
+5. **Only** if your are on a Mac: 
+
+   1. Open the `devcontainer/devcontainer.json`
+
+   2. Replace the `mounts` entry with the following:
+
+      ```json
+      "mounts": [
+         "source=ABSOLUTE_PATH_TO_BOOTCAMP_RESOURCES_DIRECTORY,target=/workspaces/development-environment/bootcamp-resources,type=bind,consistency=cached",
+         "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind,consistency=cached"
+      ],
+      ```
+
+   3. Add the following `containerEnv` property below `mounts`:
+
+      ```json
+      "containerEnv": {
+         "SSH_AUTH_SOCK": "/ssh-agent",
+      },
+      ```
+
+   4. Verify that the `devcontainer/devcontainer.json` look like this:
+
+      ![macos-updated-devcontainer-json](./images/macos-updated-devcontainer-json.png)
+
+6. Update the values in `.user.env` with your details. *Be sure not to leave _any white space_ before or after the = signs.*
 
    To get the path to your **code directory**, return to the Git Bash/Terminal shell you have open and run the following command to print the path:
 
    ```shell
    pwd # ↵ Enter
-   ```
-
-   To get the path to your **bash executable**, in your Git Bash/Terminal shell run the following:
-
-   ```shell
-   # OSX and Linux users: 
-   whereis bash  # ↵ Enter
-   # Windows users: 
-   where bash # ↵ Enter
    ```
 
    ```dotenv
@@ -197,7 +199,7 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    # becomes
    #    'C:\\Program Files\\Git\\bin\\bash.exe'
    #
-   WIN_BASH_PATH='C:\\Program Files\\Git\\bin\\bash.exe'
+   WIN_BASH_PATH='C:\\Program Files\\Git\\bin\\bash.exe' # <-- No need to modify this if you followed instructions above ;) 
    #
    # On OSX:
    # ----------
@@ -215,9 +217,9 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    STUDENT_REPO_NAME=bootcamp-resources
    ```
 
-6. Open a new terminal `` Ctrl + Shift + ` ``
+7. Open a new terminal `` Ctrl + Shift + ` ``
 
-7. In the terminal, run the following commands. When prompted, enter your GitHub account password and hit ↵ Enter.
+8. In the terminal, run the following commands. When prompted, enter your GitHub account password and hit ↵ Enter.
 
    ```shell
    chmod u+x ./configure-development-environment.sh # ↵ Enter
