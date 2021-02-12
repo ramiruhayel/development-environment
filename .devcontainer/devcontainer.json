@@ -12,11 +12,9 @@
 
   "runArgs": ["--env-file", ".devcontainer/devcontainer.env"],
 
-  "mounts": [
-    "source=ABSOLUTE_PATH_TO_BOOTCAMP_RESOURCES_DIRECTORY,target=/workspaces/development-environment/bootcamp-resources,type=bind,consistency=cached"
-  ],
+  "workspaceMount": "source=ABSOLUTE_PATH_TO_BOOTCAMP_RESOURCES_DIRECTORY,target=/bootcamp-resources,type=bind,consistency=cached",
 
-  "workspaceFolder": "/workspaces/development-environment/bootcamp-resources",
+  "workspaceFolder": "/bootcamp-resources",
 
   "extensions": [
 	"dbaeumer.vscode-eslint",

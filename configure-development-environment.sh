@@ -12,14 +12,14 @@ echo "Student Repository Name: $STUDENT_REPO_NAME"
 
 echo "GitHub Personal Access Token: $GITHUB_PERSONAL_ACCESS_TOKEN"
 echo "GitHub Account Name: $GITHUB_ACCOUNT_NAME"
-echo "Code Path: $CODE_PATH"
+echo "Bootcamp Resources Path: $BOOTCAMP_RESOURCES_PATH"
 
 echo "Windows Bash Path: $WIN_BASH_PATH"
 echo "OSX Bash Path: $OSX_BASH_PATH"
 echo "Linux Bash Path: $LINUX_BASH_PATH"
 
-BOOTCAMP_RESOURCES_PATH="$CODE_PATH/$STUDENT_REPO_NAME"
-echo "Bootcamp Resources Path: $BOOTCAMP_RESOURCES_PATH"
+BOOTCAMP_ACTIVITIES_PATH="$BOOTCAMP_RESOURCES_PATH/$STUDENT_REPO_NAME"
+echo "Bootcamp Activities Path: $BOOTCAMP_ACTIVITIES_PATH"
 echo "-----------------------------------------------------------------"
 
 # Update path to bash executable in settings.json
@@ -40,13 +40,13 @@ sed -i -e "s|\(source=\).*\(,target=/workspaces/development-environment/bootcamp
 rm -f ./.devcontainer/devcontainer.json-e
 echo "Updated devcontainer/devcontainer.json"
 
-# Create a bootcamp-resources repository (if it doesn't exist)
+# Create a bootcamp-activities repository (if it doesn't exist)
 response_code=$(curl -s\
   -w "%{response_code}" \
   -u "$GITHUB_PERSONAL_ACCESS_TOKEN:x-oauth-basic" \
   -H "Accept: application/vnd.github.v3+json" \
   https://api.github.com/user/repos \
-  -d "{\"name\":\"$STUDENT_REPO_NAME\"}" \
+  -d "{\"name\":\"$STUDENT_REPO_NAME\", \"private\": true}" \
   -o .create-repo-response.tmp)
 
 if [ $response_code -eq "201" ]
@@ -67,11 +67,11 @@ fi
 BOOTCAMP_REPO_SSH_URL=$(sed -n 's~"ssh_url": "\(.*\)",~\1~p' .create-repo-response.tmp | sed 's/^\s*//g')
 rm -f .create-repo-response.tmp
 
-# Clone the bootcamp-resources repository (if it hasn't already been checked out)
-if [ -d "$BOOTCAMP_RESOURCES_PATH" ]
+# Clone the bootcamp-activities repository (if it hasn't already been checked out)
+if [ -d "$BOOTCAMP_ACTIVITIES_PATH" ]
 then
   echo ""
-  echo "Error: The folder $BOOTCAMP_RESOURCES_PATH already exists."
+  echo "Error: The folder $BOOTCAMP_ACTIVITIES_PATH already exists."
   echo "Please contact your T.A. or instructor for assistance."
   echo ""
   echo '.·´¯`(>▂<)´¯`·.'
@@ -87,14 +87,14 @@ then
   echo ""
   exit 1
 else
-  git clone $BOOTCAMP_REPO_SSH_URL $BOOTCAMP_RESOURCES_PATH
+  git clone $BOOTCAMP_REPO_SSH_URL $BOOTCAMP_ACTIVITIES_PATH
   echo ""
-  echo "Your repository [${BOOTCAMP_REPO_SSH_URL}] was cloned into ${BOOTCAMP_RESOURCES_PATH}"
+  echo "Your repository [${BOOTCAMP_REPO_SSH_URL}] was cloned into ${BOOTCAMP_ACTIVITIES_PATH}"
   cat <<EOF
 
   what
     ⊂_ヽ
-  　  ＼＼ a
+  　  ＼＼a
   　　 ＼( ͡° ͜ʖ ͡°)
   　　　 >　⌒ヽ
   　　　/ 　 へ＼
