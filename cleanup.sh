@@ -11,9 +11,9 @@ echo "Student Repository Name: $STUDENT_REPO_NAME"
 echo "GitHub Account Name: $GITHUB_ACCOUNT_NAME"
 echo "GitHub Personal Access Token: $GITHUB_PERSONAL_ACCESS_TOKEN"
 
-echo "Code Path: $CODE_PATH"
-BOOTCAMP_RESOURCES_PATH="$CODE_PATH/$STUDENT_REPO_NAME"
 echo "Bootcamp Resources Path: $BOOTCAMP_RESOURCES_PATH"
+BOOTCAMP_ACTIVITIES_PATH="$BOOTCAMP_RESOURCES_PATH/$STUDENT_REPO_NAME"
+echo "Bootcamp Activities Path: $BOOTCAMP_ACTIVITIES_PATH"
 
 echo "-----------------------------------------------------------------"
 
@@ -33,8 +33,8 @@ function cleanup () {
   if [ $response_code -eq "204" ]
   then 
     echo "Deleted repository @ /${GITHUB_ACCOUNT_NAME}/${STUDENT_REPO_NAME}"
-    rm -rf $BOOTCAMP_RESOURCES_PATH
-    echo "Deleted ${BOOTCAMP_RESOURCES_PATH} folder"
+    rm -rf $BOOTCAMP_ACTIVITIES_PATH
+    echo "Deleted ${BOOTCAMP_ACTIVITIES_PATH} folder"
     cat <<EOF
 
     {\_/}
