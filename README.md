@@ -252,12 +252,37 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
 
 8. Open a new terminal `` Ctrl + Shift + ` ``
 
-9. In the terminal, run the following commands. When prompted, enter your GitHub account password and hit ↵ Enter.
+9. In the terminal, run the following commands. _If prompted, enter your SSH key passphrase and hit ↵ Enter_.
 
    ```console
    chmod u+x ./configure-development-environment.sh # ↵ Enter
    ./configure-development-environment.sh # ↵ Enter
    ```
+
+   If the script successfully executes, you will see the following:
+
+   ```console
+   Your repository [git@github.com:johndoe/bootcamp-activities.git] was cloned into /home/johndoe/code/bootcamp-resources/bootcamp-activities
+
+     what
+     ⊂_ヽ
+   　  ＼＼a
+   　　 ＼( ͡° ͜ʖ ͡°)
+   　　　 >　⌒ヽ
+   　　　/ 　 へ＼
+   　　 /　　/　＼great
+   　　 ﾚ　ノ　　 ヽ_つ
+   　　/　/
+   　 /　/|
+   　(　(ヽ
+   　|　|、success!
+   　| 丿 ＼ ⌒)
+   　| |　　) /
+    ノ )　　Lﾉ
+   (_／#winning
+   ```
+
+   If you do not see the happy dancing man, please copy the error message shown in your console and get in touch with your TA(s) or as a last resort, your very busy, highly important instructor.
 
 10. Copy the `01-HTML-Git-CSS.zip` from `~/code/development-environment` to `~/code/bootcamp-resources/bootcamp-activities`
 

@@ -87,7 +87,13 @@ then
   echo ""
   exit 1
 else
-  git clone $BOOTCAMP_REPO_SSH_URL $BOOTCAMP_ACTIVITIES_PATH
+  git clone ${BOOTCAMP_REPO_SSH_URL} $BOOTCAMP_ACTIVITIES_PATH
+  ret=$?
+  if ! test "$ret" -eq 0
+  then
+    echo >&2 "Failed to clone your repository [${BOOTCAMP_REPO_SSH_URL}]. The exit status was $ret"
+    exit 1
+  else
   echo ""
   echo "Your repository [${BOOTCAMP_REPO_SSH_URL}] was cloned into ${BOOTCAMP_ACTIVITIES_PATH}"
   cat <<EOF
@@ -110,4 +116,5 @@ else
   (_／#winning
 
 EOF
+  fi
 fi
