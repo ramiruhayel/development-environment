@@ -36,7 +36,7 @@ rm -f ./.devcontainer/devcontainer.env-e
 echo "Updated devcontainer/devcontainer.env"
 
 # Update devcontainer.json
-sed -i -e "s|\(source=\).*\(,target=/workspaces/development-environment/bootcamp-resources\)|\1$BOOTCAMP_RESOURCES_PATH\2|" ./.devcontainer/devcontainer.json
+sed -i -e "s|\(source=\).*\(,target=/bootcamp-resources\)|\1$BOOTCAMP_RESOURCES_PATH\2|" ./.devcontainer/devcontainer.json
 rm -f ./.devcontainer/devcontainer.json-e
 echo "Updated devcontainer/devcontainer.json"
 
