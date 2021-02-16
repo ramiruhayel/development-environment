@@ -367,15 +367,16 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    ```console
    # Pushes the changes in your local repository up to the remote repository you specified as the origin
 
-   $ git push  # ↵ Enter
+   $ git push -u origin main  # ↵ Enter
    Enumerating objects: 7, done.
    Counting objects: 100% (7/7), done.
-   Delta compression using up to 12 threads
+   Delta compression using up to 4 threads
    Compressing objects: 100% (4/4), done.
-   Writing objects: 100% (7/7), 1.14 KiB | 584.00 KiB/s, done.
-   Total 7 (delta 0), reused 0 (delta 0)
-   To github.com:robynheslop/bootcamp-activities.git
-       beb8c5e..eda961a  main -> main -->
+   Writing objects: 100% (7/7), 1.14 KiB | 11.00 KiB/s, done.
+   Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+   To github.com:johndoe/bootcamp-activities.git
+   * [new branch]      main -> main
+   Branch 'main' set up to track remote branch 'main' from 'origin'.
    ```
 
    ![coding-magic](./images/coding-magic.jpeg)
