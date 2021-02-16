@@ -69,15 +69,7 @@ You will need to add, stage and commit the changes made in your local repository
    ```console
    # Pushes the changes in your local repository up to the remote repository you specified as the origin
 
-   $ git push  # ↵ Enter
-   Enumerating objects: 7, done.
-   Counting objects: 100% (7/7), done.
-   Delta compression using up to 12 threads
-   Compressing objects: 100% (4/4), done.
-   Writing objects: 100% (7/7), 1.14 KiB | 584.00 KiB/s, done.
-   Total 7 (delta 0), reused 0 (delta 0)
-   To github.com:robynheslop/bootcamp-activities.git
-       beb8c5e..eda961a  main -> main -->
+   git push  # ↵ Enter
    ```
 
 ## The class GitLab repository
