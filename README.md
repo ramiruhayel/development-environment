@@ -216,7 +216,7 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    # Path to 'bootcamp-resources' directory.
    # The path will look different depending on your OS:
    # Windows: '/c/Users/johndoe/code/bootcamp-resources'
-   # MacOS: '/home/johndoe/code/bootcamp-resources'
+   # MacOS: '/Users/johndoe/code/bootcamp-resources'
    # Linux: '/home/johndoe/code/bootcamp-resources'
    #
    BOOTCAMP_RESOURCES_PATH=/home/johndoe/code/bootcamp-resources # <--- Make sure there is no trailing / e.g. ../bootcamp-resources NOT ../bootcamp-resources/
@@ -250,21 +250,32 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    STUDENT_REPO_NAME=bootcamp-activities
    ```
 
-8. Open a new terminal `` Ctrl + Shift + ` ``
+   > _Be sure to save your changes._
 
-9. In the terminal, run the following commands. _If prompted, enter your SSH key passphrase and hit ↵ Enter_.
+8. In the Visual Studio Code menu, click `Terminal`, then click `New Terminal`.
+
+   ![new-terminal](./images/new-terminal.png)
+
+9. In this terminal, run the following command:
 
    ```console
-   chmod u+x ./configure-development-environment.sh # ↵ Enter
-   ./configure-development-environment.sh # ↵ Enter
+   chmod u+x ./configure-development-environment.sh
    ```
+
+   There should be no output from this. Then run the following:
+
+   ```console
+   ./configure-development-environment.sh
+   ```
+
+   _If prompted, enter your SSH key passphrase and hit ↵ Enter_.
 
    If the script successfully executes, you will see the following:
 
    ```console
    Your repository [git@github.com:johndoe/bootcamp-activities.git] was cloned into /home/johndoe/code/bootcamp-resources/bootcamp-activities
 
-     what
+   what
      ⊂_ヽ
    　  ＼＼a
    　　 ＼( ͡° ͜ʖ ͡°)
@@ -282,17 +293,17 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
    (_／#winning
    ```
 
-   If you do not see the happy dancing man, please copy the error message shown in your console and get in touch with your TA(s) or as a last resort, your very busy, highly important instructor.
+   If you do not see the happy dancing man, please copy the error message shown in your console and get in touch with your TAs or instructor.
 
 10. Copy the `01-HTML-Git-CSS.zip` from `~/code/development-environment` to `~/code/bootcamp-resources/bootcamp-activities`
 
-   ```console
-   cp ~/code/development-environment/01-HTML-Git-CSS.zip ~/code/bootcamp-resources/bootcamp-activities # ↵ Enter
-   ```
+```console
+cp ~/code/development-environment/01-HTML-Git-CSS.zip ~/code/bootcamp-resources/bootcamp-activities # ↵ Enter
+```
 
 ## Open your `bootcamp-resources` folder in the development container
 
-1. Press `F1` to open the Command Palette.
+1. In the Visual Studio Code menu, click `View` and click `Command Palette`.
 
 2. Type `Remote-Containers: Reopen In Container` and press enter.
 
@@ -300,7 +311,7 @@ Follow the instructions [here](https://docs.github.com/en/github/authenticating-
 
 ## Add your first activity to your `bootcamp-activities` repository
 
-1. Open a new terminal `` Ctrl + Shift + ` ``
+1. In the Visual Studio Code menu, click `Terminal`, then click `New Terminal`.
 
 2. Unzip the first Activity for Week 1, Day 1 into the `bootcamp-activities` directory
 
