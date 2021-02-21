@@ -57,7 +57,7 @@ It's not critical to understand exactly how this all works, for now you can put 
 1. Set Bash as the default shell for the Terminal app
    - In the Terminal app on your Mac, choose Terminal > Preferences, then click General.
    - Under “Shells open with,” select “Command (complete path),” then enter `/bin/bash`
-2. Add VS Code to your `PATH`:
+2. Update your bash_profile file:
 
    - To open a new terminal, press `⌘ Command`+`Space` to open Spotlight search, type `terminal` and hit `↵ Enter`.
    - In the terminal window, copy and paste the following command and press `↵ Enter`:
@@ -66,6 +66,8 @@ It's not critical to understand exactly how this all works, for now you can put 
      cat << EOF >> ~/.bash_profile
      # Add Visual Studio Code (code)
      export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+     # Register identity with ssh agent
+     ssh-add ~/.ssh/id_rsa
      EOF
      ```
 
